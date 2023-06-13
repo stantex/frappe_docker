@@ -203,8 +203,38 @@ services:
 
 volumes:
   db-data:
+    driver: local
+    driver_opts:
+      type: nfs4
+      o: addr=${STORAGE_IP},nolock,soft,rw
+      device: ":/volume1/docker-data/db"
   redis-queue-data:
+    driver: local
+    driver_opts:
+      type: nfs4
+      o: addr=${STORAGE_IP},nolock,soft,rw
+      device: ":/volume1/docker-data/redis/queue"
   redis-cache-data:
+    driver: local
+    driver_opts:
+      type: nfs4
+      o: addr=${STORAGE_IP},nolock,soft,rw
+      device: ":/volume1/docker-data/redis/cache"
   redis-socketio-data:
+    driver: local
+    driver_opts:
+      type: nfs4
+      o: addr=${STORAGE_IP},nolock,soft,rw
+      device: ":/volume1/docker-data/redis/socketio"
   sites:
+    driver: local
+    driver_opts:
+      type: nfs4
+      o: addr=${STORAGE_IP},nolock,soft,rw
+      device: ":/volume1/docker-data/sites"
   logs:
+    driver: local
+    driver_opts:
+      type: nfs4
+      o: addr=${STORAGE_IP},nolock,soft,rw
+      device: ":/volume1/docker-data/logs"
